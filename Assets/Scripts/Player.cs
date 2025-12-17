@@ -48,20 +48,18 @@ public class Player : BaseEntity, IDamageable
     {
         moveDirection = vector;
     }
-
-    
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            TakeDamage(1);
-        }
-    }
     private void FixedUpdate()
     {
         rb.linearVelocity = moveDirection * speed;
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            TakeDamage(1);
+            Destroy(collision.gameObject);
+        }
+    }
     public void TakeDamage(int amount)
     {
         live -= amount;
