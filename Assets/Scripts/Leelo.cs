@@ -1,3 +1,4 @@
+#if UNITY_ANDROID
 Examen Sustitutorio
 Indicaciones:
  	1.- Entregar su celular al profesor.
@@ -22,3 +23,4 @@ Entregables:
 	2.- El archivo UnityPackage.
 	3.- Subir los archivos en una carpeta en el foro asignado
 
+#endif
