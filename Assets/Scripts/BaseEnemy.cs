@@ -9,6 +9,10 @@ public class BaseEnemy : MonoBehaviour, IDamageable
     {
         
     }
+    public void GetTarget(Transform player)
+    {
+
+    }
     public void TakeDamage(int amount)
     {
         LiveEnemy -= amount;
