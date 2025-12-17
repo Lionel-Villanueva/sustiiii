@@ -17,8 +17,7 @@ public class BulletController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            GameManager.Instance.AddScore(10);
-            Destroy(collision.gameObject);
+            collision.GetComponent<BaseEnemy>().TakeDamage(5);
             Destroy(this.gameObject);
         }
     }

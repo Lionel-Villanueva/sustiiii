@@ -26,6 +26,7 @@ public class BaseEnemy : MonoBehaviour, IDamageable
 
         if (LiveEnemy <= 0)
         {
+            GameManager.Instance.AddScore(10);
             Dead();
         }
 
