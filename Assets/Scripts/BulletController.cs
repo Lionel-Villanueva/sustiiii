@@ -17,6 +17,7 @@ public class BulletController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            GameManager.Instance.AddScore(10);
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
@@ -25,4 +26,5 @@ public class BulletController : MonoBehaviour
     {
         direction = value;
     }
+
 }
