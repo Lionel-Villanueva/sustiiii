@@ -33,6 +33,7 @@ public class Spawner : MonoBehaviour
         Vector3 spawnPosition = player.position + new Vector3(randomPos.x,randomPos.y);
 
         GameObject enemy = Instantiate(enemyPrefab, spawnPosition, transform.rotation);
+        enemy.GetComponent<BaseEnemy>().GetTarget(player);
         spawnedEnemies.Add(enemy);
     }
 
