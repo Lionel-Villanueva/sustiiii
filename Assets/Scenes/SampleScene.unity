@@ -576,6 +576,7 @@ MonoBehaviour:
   live: 10
   speed: 4.24
   scene: SampleScene
+  prefabBullet: {fileID: 7526925360292906793, guid: b701082e4f7aff5478eb3318cbe555f2, type: 3}
 --- !u!1 &1693192493
 GameObject:
   m_ObjectHideFlags: 0

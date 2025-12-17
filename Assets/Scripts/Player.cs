@@ -11,6 +11,8 @@ public class Player : BaseEntity, IDamageable
     public string scene;
     private Vector2 moveDirection;
 
+    public GameObject prefabBullet;
+    private Vector2 direcitonMouse;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,10 +20,28 @@ public class Player : BaseEntity, IDamageable
     private void OnEnable()
     {
         PlayerInput.OnMove += Move;
+        PlayerInput.OnMousePosition += MousePosition;
+        PlayerInput.OnShoot += Shoot;
     }
+
+    private void Shoot()
+    {
+        GameObject go = Instantiate(prefabBullet, transform.position, transform.rotation);
+        go.GetComponent<BulletController>().Direction(direcitonMouse);
+    }
+
+    private void MousePosition(Vector2 obj)
+    {
+        direcitonMouse = Camera.main.ScreenToWorldPoint(obj);
+        direcitonMouse = direcitonMouse - (Vector2)transform.position;
+        direcitonMouse = direcitonMouse.normalized;
+    }
+
     private void OnDisable()
     {
         PlayerInput.OnMove -= Move;
+        PlayerInput.OnMousePosition -= MousePosition;
+        PlayerInput.OnShoot -= Shoot;
     }
 
     private void Move(Vector2 vector)
